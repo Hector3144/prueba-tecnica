@@ -41,6 +41,15 @@
           border-2 border-white py-2 px-4 rounded-md hover:bg-white 
           hover:text-indigo-700">Cerrar Sesion</a>
         </li>
+        @else
+        <li class="mx-8">
+          <p class="text-xl">Bienvenido <b>{{auth()->user()->name }}</b></p>
+        </li>
+        <li>
+          <a href="{{ route('login.destroy') }}" class="font-semibold
+          border-2 border-white py-2 px-4 rounded-md hover:bg-white 
+          hover:text-indigo-700">Cerrar Sesion</a>
+        </li>
         @endif
         @endif
         @else

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class PublicacionController extends Controller
 {
+    public function index(){
+        $publis = publi::all();
+        return view('layauts.index')->with(compact('publis'));
+    }
 public function create(){
 
 

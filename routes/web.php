@@ -6,9 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
 
-Route::get('/', function () {
-    return view('layauts.index');
-})->name('home.index');
+
+Route::get('/', [PublicacionController::class, 'index'])->name('home.index');
 
 Route::get('/login', [SessionController::class, 'create'])->name('login.index');
 Route::post('/login', [SessionController::class, 'regis'])->name('login.regis');
