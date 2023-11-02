@@ -6,9 +6,22 @@ use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Models\Publi;
 
+Route::get("/", function () {
+    return view("layauts.index",[
+        "publis"=> Publi::all()
+    ]);
+    
+})->name('home.index');
 
-Route::get('/', [PublicacionController::class, 'index'])->name('home.index');
+Route::get("/search", function () {
+    return view("partial.post",[
+        'publis' => Publi::where('date', 'LIKE', '%'.request('q').'%')->get()
+    ]);
+    
+});
+
 
 Route::get('/login', [SessionController::class, 'create'])->name('login.index');
 Route::post('/login', [SessionController::class, 'regis'])->name('login.regis');

@@ -3,21 +3,22 @@
 @section('title', 'index')
 
 @section('content')
+<label>Buscar por fecha
+<input id="search" type="search">
+</label>
+<u id="busca">
+@include('partial.post')
+</u>
 
-
-
-@foreach ($publis as $publi)
-
-<br></br>
-<div class=" container border p-4">
-<h2 class="card-title">{{$publi->title}}</h2>
-  <div class="card-body">
-    <p class="card-text">{{$publi->desc}}</p>
-    <div class="post-body">{{$publi->date}}</div>
-  </div>
-</div>
-@endforeach
-
+<script>
+ document.getElementById('search').addEventListener('input', function(event) {
+  fetch('/search?q='+event.target.value)
+  .then(res=>res.text())
+  .then(html=>{
+    document.getElementById('busca').innerHTML = html
+  })
+ })
+</script>
 
 
 @endsection

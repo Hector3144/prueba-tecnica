@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder{
         $user->email= 'test@test.com';
         $user->age= '22';
         $user->password= '12345';
-        $user->role= 'user';
+        $user->role= 'null';
 
         $user->save();
 
