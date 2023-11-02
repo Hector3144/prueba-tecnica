@@ -28,6 +28,6 @@ public function poste(Request $request){
     $publi -> date = $request->date;
     $publi -> save ();
 
-    return redirect()->route('publi.index')->with('success', 'Tarea Creada Satisfactorimente');
+    return redirect()->route('publi.index')->with('success', 'Publicacion Hecha');
     }
 }

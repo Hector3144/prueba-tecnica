@@ -9,13 +9,36 @@ rounded-lg shadow-lg">
 
 <form class="mt-4" method="POST" action="">
 @csrf  
+@if (session ('success'))
+    <h6 class="alert alert-success">{{ session('success')}}</h6>
+@endif
+@error('title')        
+
+    <p class="border border-red-500 rounded-md bg-red-100 w-full
+    text-red-600 p-2 my-2">* {{ $message }}</p>
+@enderror
+
 <input type="text" class="border border-gray-200 rounded-md bg-gray-200 w-full
     text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="Titulo"
     id="title" name="title">
 
+@error('desc')        
+
+    <p class="border border-red-500 rounded-md bg-red-100 w-full
+    text-red-600 p-2 my-2">* {{ $message }}</p>
+
+@enderror
+
     <input type="text" class="border border-gray-200 rounded-md bg-gray-200 w-full
     text-lg placeholder-gray-900 p-8 my-1 focus:bg-white" placeholder="Descripcion"
     id="desc" name="desc">
+
+@error('date')        
+
+    <p class="border border-red-500 rounded-md bg-red-100 w-full
+    text-red-600 p-2 my-2">* {{ $message }}</p>
+@enderror
+    
 
     <input type="date" class="border border-gray-200 rounded-md bg-gray-200 w-full
     text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="fecha"
