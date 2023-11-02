@@ -11,7 +11,7 @@
   </head>
   <body class="bg-gray-100 text-gray-800">
 
-    <nav class="flex py-3 bg-gray-700 text-white">
+    <nav class="flex py-2 bg-gray-700 text-white">
       <div class="w-1/2 px-12 mr-auto">
         <a href="{{ route('home.index') }}" class="text-2xl font-bold">Blog</a>
       </div>
@@ -21,13 +21,18 @@
 
       @if (auth()->user()->role=='admin')
       <li class="mx-8">
-          <p class="text-xl">Bienvenido  Administrador <b>{{auth()->user()->name }}</b></p>
+          <p class="text-xl">Bienvenido Administrador <b>{{auth()->user()->name }}</b></p>
+          <a href="{{ route('admin.index') }}" class="font-semibold 
+          hover:bg-indigo-700 py-3 px-4 rounded-md">Administrar Usuarios</a>
         </li>
         <li>
+
+        <a href="{{ route('publi.index') }}" class="font-semibold 
+          hover:bg-indigo-700 py-3 px-4 rounded-md">hacer publicacion</a>
+          
           <a href="{{ route('login.destroy') }}" class="font-semibold
           border-2 border-white py-2 px-4 rounded-md hover:bg-white 
-          hover:text-indigo-700">Cerrar Session</a>
-      
+          hover:text-indigo-700">Cerrar Sesion</a>
         @else
         @if (auth()->user()->role=='user')
         <li class="mx-8">

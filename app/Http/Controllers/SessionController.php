@@ -20,7 +20,7 @@ class SessionController extends Controller
             ]);
     }else{
         if(auth()->user()->role=='admin'){
-        return redirect()->route('aminist.index');
+        return redirect()->route('home.index');
     }else {
         return redirect() ->to('/');
     }

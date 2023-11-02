@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdministController;
 use App\Http\Controllers\PublicacionController;
+use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
@@ -22,3 +23,9 @@ Route::get('/login', [SessionController::class, 'create'])->name('login.index');
 
 Route::get('/publicacion', [PublicacionController::class, 'create'])->name('publi.index');
 Route::post('/publicacion', [PublicacionController::class, 'poste'])->name('publi.poste');
+
+Route::get('/admin', [RolController::class, 'index'])->name('admin.index');
+Route::get('/admin/{id}', [RolController::class, 'show'])->name('admin.show');
+Route::get('/admin/{id}', [RolController::class, 'showdos'])->name('admin.showdos');
+Route::patch('/admin/{id}', [RolController::class, 'update'])->name('admin.update');
+
