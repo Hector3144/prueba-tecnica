@@ -19,6 +19,16 @@
       <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
       @if (auth()->check())
 
+      @if (auth()->user()->role=='admin')
+      <li class="mx-8">
+          <p class="text-xl">Bienvenido  Administrador <b>{{auth()->user()->name }}</b></p>
+        </li>
+        <li>
+          <a href="{{ route('login.destroy') }}" class="font-semibold
+          border-2 border-white py-2 px-4 rounded-md hover:bg-white 
+          hover:text-indigo-700">Cerrar Session</a>
+      
+        @else
         <li class="mx-8">
           <p class="text-xl">Bienvenido <b>{{auth()->user()->name }}</b></p>
         </li>
@@ -27,6 +37,7 @@
           border-2 border-white py-2 px-4 rounded-md hover:bg-white 
           hover:text-indigo-700">Cerrar Sesion</a>
         </li>
+        @endif
         @else
         <li class="mx-6">
           <a href="{{ route('login.index') }}" class="font-semibold 

@@ -18,11 +18,18 @@ class SessionController extends Controller
             return back()->withErrors([
                 'message' => 'El email o la contraseña estan incorrectos, porfavor intenta de nuevo',
             ]);
+    }else{
+        if(auth()->user()->role=='admin'){
+        return redirect()->route('aminist.index');
+    }else {
+        return redirect() ->to('/');
     }
-     return redirect() ->to('/');
+}
+
 }
 public function destroy(){
     auth()->logout();
     return redirect() ->to('/');
 }
 }
+
