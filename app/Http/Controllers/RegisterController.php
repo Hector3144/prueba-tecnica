@@ -27,6 +27,8 @@ class RegisterController extends Controller
         $user->role= 'user';
         $user->save();
 
+        
+
         auth()-> login($user);
         return redirect() ->to ('/');
     }

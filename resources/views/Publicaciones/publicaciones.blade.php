@@ -20,6 +20,9 @@ rounded-lg shadow-lg">
     <input type="date" class="border border-gray-200 rounded-md bg-gray-200 w-full
     text-lg placeholder-gray-900 p-2 my-2 focus:bg-white" placeholder="fecha"
     id="date" name="date">
+
+    <button type="submit" class="rounded-md bg-indigo-500 w-full text-lg
+    text-white font-semibold p-2 my-3 hover:bg-indigo-600">Enviar</button>
 </form>
 </div>
 @endsection

@@ -22,3 +22,4 @@ Route::get('/admin', [AdministController::class, 'administ'])->middleware('admin
 Route::get('/login', [SessionController::class, 'create'])->name('login.index');
 
 Route::get('/publicacion', [PublicacionController::class, 'create'])->name('publi.index');
+Route::post('/publicacion', [PublicacionController::class, 'poste'])->name('publi.poste');
