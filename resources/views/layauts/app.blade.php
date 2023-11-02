@@ -29,6 +29,7 @@
           hover:text-indigo-700">Cerrar Session</a>
       
         @else
+        @if (auth()->user()->role=='user')
         <li class="mx-8">
           <p class="text-xl">Bienvenido <b>{{auth()->user()->name }}</b></p>
         </li>
@@ -40,6 +41,7 @@
           border-2 border-white py-2 px-4 rounded-md hover:bg-white 
           hover:text-indigo-700">Cerrar Sesion</a>
         </li>
+        @endif
         @endif
         @else
         <li class="mx-6">
