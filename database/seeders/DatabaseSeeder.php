@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Role;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\publi;
+use App\Models\View;
 
 class DatabaseSeeder extends Seeder{
     /**
@@ -14,12 +16,33 @@ class DatabaseSeeder extends Seeder{
      */
     public function run(): void{
 
+        $view = new View;
+        $view->name= 'autorizar';
+        $view->save();
+
+        $view = new View;
+        $view->name= 'Denegar';
+        $view->save();
+
+        $role = new Role;
+        $role->name= 'admin';
+        $role->save();
+
+        $role = new Role;
+        $role->name= 'user';
+        $role->save();
+
+        $role = new Role;
+        $role->name= 'none';
+        $role->save();
+
         $user = new User;
         $user->name= 'Hector';
         $user->email= 'admin@test.com';
         $user->age= '22';
         $user->password= '12345';
-        $user->role= 'admin';
+        $user->role_id= 1;
+        $user->view_id= 1;
 
         $user->save();
 
@@ -28,7 +51,8 @@ class DatabaseSeeder extends Seeder{
         $user->email= 'test@test.com';
         $user->age= '22';
         $user->password= '12345';
-        $user->role= 'null';
+        $user->role_id= 2;
+        $user->view_id= 1;
 
         $user->save();
 

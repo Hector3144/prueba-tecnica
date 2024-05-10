@@ -18,18 +18,19 @@ class RegisterController extends Controller
             'age' => 'required',
             'email' => 'required|email',
             'password' => 'required|confirmed',
-            
-
         ]);
 
-        
-        $user= User::create(request(['name','rol', 'age', 'email', 'password']));
-        $user->role= 'none';
+        $user = new User();
+        $user->name = request('name');
+        $user->age = request('age');
+        $user->email = request('email');
+        $user->password = bcrypt(request('password'));
+        $user->role_id = 3; // Set the role_id value explicitly
+        $user->view_id = 1; // Set the view_id value explicitly
+
         $user->save();
 
-        
-
-        auth()-> login($user);
-        return redirect() ->to ('/');
+        auth()->login($user);
+        return redirect()->to('/');
     }
 }

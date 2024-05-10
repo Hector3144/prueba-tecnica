@@ -10,14 +10,14 @@
         @csrf
 
         @foreach ($users as $user)
-        
+
             <div class="row py-1">
                 <div class="col-md-9 d-flex align-items-center">
                     <a>{{ $user->name }}.</a>
-                    <a href="{{ route('admin.showdos', ['id' => $user->id]) }}">{{ $user->role }}</a>
+                    <a href="{{ route('admin.showdos', ['id' => $user->id]) }}">{{ $user->role_id }}</a>
                 </div>
             </div>
-            
+
         @endforeach
     </div>
     </div>
